@@ -1,0 +1,18 @@
+apiVersion : argoproj.io/v1alpha1
+kind: Application 
+metadata :
+  name: ashish-default
+  # namespace: default
+  namespace : argocd 
+spec: 
+  destination :
+    namespace: default  
+    server: https://kubernetes.default.svc
+  project: default 
+  source: 
+    repoURL: https://github.com/Ashish21-hedau/main-mainifest-new.git 
+    path: .
+    ref: main
+  syncPolicy:
+    automated:
+      enabled: true
